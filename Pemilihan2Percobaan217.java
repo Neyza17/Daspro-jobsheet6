@@ -31,7 +31,7 @@ public class Pemilihan2Percobaan217 {
                 harga = 3000;
                 System.out.println("Harga Ice Tea = " + harga);
             } else if (pilihan_menu == 3) {
-                harga= 15000;
+                harga = 15000;
                 System.out.println("Harga Bundling = " + harga);
             } else {
                 System.out.println("Masukkan pilihan menu dengan benar");
@@ -39,11 +39,10 @@ public class Pemilihan2Percobaan217 {
             }
             // Menghitung total bayar setelah diskon
             total_bayar = harga - (harga * diskon);
-            System.out.println("total bayar setelah diskon = " + total_bayar);
         } else if (member.equalsIgnoreCase("n")) {
             if (pilihan_menu == 1) {
                 harga = 14000;
-                System.out.println("harga Ricebowl = " + harga);
+                System.out.println("Harga Ricebowl = " + harga);
             } else if (pilihan_menu == 2) {
                 harga = 3000;
                 System.out.println("Harga Ice Tea = " + harga);
@@ -55,10 +54,25 @@ public class Pemilihan2Percobaan217 {
                 return;
             }
             // Menghitung total tanpa member
-            System.out.println("Total bayar = " + harga);
+            total_bayar = harga;
         } else {
-            System.out.println("Member tidal valid!");
+            System.out.println("Member tidak valid!");
+            return;
         }
+
+        // Menanyakan metode pembayaran
+        System.out.print("Metode pembayaran (Cash/QRIS)? = ");
+        String metode_pembayaran = input.nextLine();
+        System.out.println("--------------------------------------");
+
+        // Memberikan potongan Rp. 1.000 jika menggunakan QRIS
+        if (metode_pembayaran.equalsIgnoreCase("QRIS")) {
+            total_bayar -= 1000; // Mengurangi total dengan potongan
+            System.out.println("Potongan QRIS = Rp. 1000");
+        }
+
+        // Menampilkan total akhir
+        System.out.println("Total bayar akhir = " + total_bayar);
         System.out.println("--------------------------------------");
     }
 }
