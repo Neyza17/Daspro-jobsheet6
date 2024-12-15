@@ -6,11 +6,15 @@ public class Pemilihan2Percobaan117 {
 
         System.out.print("Masukkan tahun: ");
         int tahun = input.nextInt();
+        int cekKelipatan4 = tahun % 4;
+        int cekKelipatan100 = tahun % 100;
+        int cekKelipatan400 = tahun % 400;
+        int kabisat = (1 - (cekKelipatan4 / (cekKelipatan4 + 1))) * (1 - (cekKelipatan100 / (cekKelipatan100 + 1))) * (1 - (cekKelipatan400 / (cekKelipatan400 + 1)));
 
-        if ((tahun % 4 == 0 && tahun % 100 != 0) || (tahun % 400 == 0)) {
+        if (kabisat == 1) {
             System.out.println(tahun + " adalah tahun kabisat");
         } else {
-            System.out.println(tahun + " bukan tahun kabisat");
+            System.out.println(tahun + " Bukan tahun kabisat");
         }
     }
 }
